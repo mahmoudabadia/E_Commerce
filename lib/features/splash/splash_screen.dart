@@ -28,7 +28,6 @@ class _SplashScreenState extends State<SplashScreen> {
 
   @override
   Widget build(BuildContext context) {
-    var width = context.width;
     var height = context.height;
     return Scaffold(
       backgroundColor: AppColors.primaryColor,

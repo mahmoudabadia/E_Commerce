@@ -2,18 +2,19 @@ import 'package:flutter/material.dart';
 import 'package:e_commerce_app/core/utils/app_assets.dart';
 import 'package:e_commerce_app/core/utils/app_colors.dart';
 import 'package:e_commerce_app/core/utils/app_text_styles.dart';
-import 'package:e_commerce_app/features/ui/widgets/custom_elevated_button.dart';
 import '../../../../core/utils/app_routes.dart';
 import '../../../../core/utils/size_utils.dart';
-import '../../widgets/custom_text_field.dart';
+import '../../../widgets/custom_elevated_button.dart';
+import '../../../widgets/custom_text_field.dart';
 
-class LoginScreen extends StatelessWidget {
-  const LoginScreen({super.key});
+class RegisterScreen extends StatelessWidget {
+  const RegisterScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     var height =context.height;
-    var width =context.width;
+
+
     return Scaffold(
       backgroundColor: AppColors.primaryColor,
       body: SafeArea(
@@ -23,37 +24,52 @@ class LoginScreen extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                SizedBox(height: height * 0.05),
+                SizedBox(height: height * 0.04),
                 Center(
                   child: Image.asset(
                     AppAssets.routeSplash,
                     height: height * 0.1,
                   ),
                 ),
-                SizedBox(height: height * 0.04),
-                Text(
-                  "Welcome Back To Route",
-                  style: AppTextStyles.semiBold24White,
-                ),
-                SizedBox(height: height * 0.001),
-                Text(
-                  "Please sign in with your mail",
-                  style: AppTextStyles.regular16White,
-                ),
-                SizedBox(height: height * 0.04),
+                SizedBox(height: height * 0.08),
 
-                Text("User Name", style: AppTextStyles.semiBold18White),
+                Text("Full Name", style: AppTextStyles.semiBold18White),
                 SizedBox(height: height * 0.01),
                 CustomTextField(
                   hintStyle: AppTextStyles.regular14lightBlue,
-                  hintText: "enter your name",
+                  hintText: "enter your full name",
+                  fillColor: AppColors.whiteColor,
+                  fill: true,
+                  keyboardType: TextInputType.name,
+                  obscureText: false,
+                  textStyle: AppTextStyles.regular14lightBlue,
+                ),
+                SizedBox(height: height * 0.04),
+                Text("Mobile Number", style: AppTextStyles.semiBold18White),
+                SizedBox(height: height * 0.01),
+                CustomTextField(
+                  hintStyle: AppTextStyles.regular14lightBlue,
+                  hintText: "enter your mobile no.",
+                  fillColor: AppColors.whiteColor,
+                  fill: true,
+                  keyboardType: TextInputType.phone,
+                  obscureText: false,
+                  textStyle: AppTextStyles.regular14lightBlue,
+                ),
+                SizedBox(height: height * 0.04),
+
+                Text("E-mail address", style: AppTextStyles.semiBold18White),
+                SizedBox(height: height * 0.01),
+                CustomTextField(
+                  hintStyle: AppTextStyles.regular14lightBlue,
+                  hintText: "enter your email address",
                   fillColor: AppColors.whiteColor,
                   fill: true,
                   keyboardType: TextInputType.emailAddress,
                   obscureText: false,
                   textStyle: AppTextStyles.regular14lightBlue,
                 ),
-                SizedBox(height: height * 0.06),
+                SizedBox(height: height * 0.04),
 
                 Text("Password", style: AppTextStyles.semiBold18White),
                 SizedBox(height: height * 0.01),
@@ -70,15 +86,6 @@ class LoginScreen extends StatelessWidget {
                     color: AppColors.lightBlueColor,
                   ),
                 ),
-                SizedBox(height: height * 0.01),
-
-                Align(
-                  alignment: Alignment.centerRight,
-                  child: Text(
-                    "Forgot password",
-                    style: AppTextStyles.semiBold18White,
-                  ),
-                ),
                 SizedBox(height: height * 0.06),
 
                 SizedBox(
@@ -87,22 +94,23 @@ class LoginScreen extends StatelessWidget {
                     onPressed: () {},
                     verticalPadding: 16,
                     redius: 15,
-                    child: Text("Login", style: AppTextStyles.semiBold20Blue),
+                    child: Text("Sign up", style: AppTextStyles.semiBold20Blue),
                   ),
                 ),
-                SizedBox(height: height * 0.02),
+                SizedBox(height: height * 0.01),
 
                 Center(
                   child: GestureDetector(
                     onTap: () {
-                      Navigator.pushNamed(context, AppRoutes.registerRouteName);
+                      Navigator.pop(context, AppRoutes.loginRouteName);
                     },
                     child: Text(
-                      "Don’t have an account? Create Account",
+                      "Already have an account? Login",
                       style: AppTextStyles.semiBold18White,
                     ),
                   ),
                 ),
+
               ],
             ),
           ),
