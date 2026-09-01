@@ -1,12 +1,9 @@
 import 'package:e_commerce_app/core/utils/app_routes.dart';
 import 'package:flutter/material.dart';
 
-
 import 'features/auth/ui/login/login_screen.dart';
 import 'features/auth/ui/register/register_screen.dart';
 import 'features/splash/splash_screen.dart';
-
-
 
 void main() {
   runApp(const MyApp());
@@ -25,9 +22,6 @@ class MyApp extends StatelessWidget {
         AppRoutes.loginRouteName: (context) => const LoginScreen(),
         AppRoutes.registerRouteName: (context) => const RegisterScreen(),
       },
-
-
     );
   }
 }
-
