@@ -1,11 +1,14 @@
+import '../errors/app_errors.dart';
+
 sealed class ApiResult<T> {
   bool get isSuccess => this is SuccessApiResult;
 
   bool get isError => this is ErrorApiResult;
 
-  T? get data => (this as SuccessApiResult).data;
+  T? get getData => (this as SuccessApiResult).data;
 
-  String? get errorMessage => (this as ErrorApiResult).errorMessage;
+  AppErrors get getError => (this as ErrorApiResult).errorMessage;
+
 }
 
 class SuccessApiResult<T> extends ApiResult<T> {
@@ -15,7 +18,7 @@ class SuccessApiResult<T> extends ApiResult<T> {
 }
 
 class ErrorApiResult<T> extends ApiResult<T> {
-  String? errorMessage;
+  AppErrors errorMessage;
 
   ErrorApiResult({required this.errorMessage});
 }

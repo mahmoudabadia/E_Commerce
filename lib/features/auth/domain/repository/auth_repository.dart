@@ -5,5 +5,5 @@ import 'package:e_commerce_app/features/auth/domain/entities/request/register/re
 abstract class AuthRepository {
   Future<ApiResult<void>> login(LoginRequest loginRequest);
 
-  Future<ApiResult<void>> rgister(RegisterRequest registerRequest);
+  Future<ApiResult<void>> register(RegisterRequest registerRequest);
 }

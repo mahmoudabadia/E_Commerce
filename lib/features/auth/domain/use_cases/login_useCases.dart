@@ -1,8 +1,9 @@
 import 'package:e_commerce_app/features/auth/domain/entities/request/login/login_request.dart';
 import 'package:e_commerce_app/features/auth/domain/repository/auth_repository.dart';
+import 'package:injectable/injectable.dart';
 
 import '../../../../core/network/api_result.dart';
-
+@lazySingleton
 class LoginUseCases {
   final AuthRepository _authRepository;
 

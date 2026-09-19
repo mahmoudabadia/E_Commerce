@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:injectable/injectable.dart';
 import 'package:retrofit/retrofit.dart';
 
 import '../../features/auth/data/models/request/login/login_request_dto.dart';
@@ -9,8 +10,9 @@ import 'end_points.dart';
 
 part 'api_client.g.dart';
 
-@RestApi(baseUrl:ApiConstants.baseUrl)
+@RestApi()
 abstract class ApiClient {
+  @FactoryMethod()
   factory ApiClient(Dio dio, {String? baseUrl}) = _ApiClient;
 
   @POST(EndPoints.loginApi)

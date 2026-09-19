@@ -1,6 +1,6 @@
 
 
-class LoginRequest {
+class LoginRequest<ApiResult>{
   final String? email;
   final String? password;
 
